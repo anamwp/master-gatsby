@@ -7,6 +7,7 @@ import GlobalStyles from '../styles/GlobalStyles';
 import Typography from '../styles/Typography';
 import stripes from '../assets/images/stripes.svg';
 
+// added style
 const SiteBorderStyles = styled.div`
   max-width: 1000px;
   margin: 12rem auto 4rem auto;
