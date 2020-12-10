@@ -15,7 +15,6 @@ async function turnPizzaIntoPages({graphql, actions}){
             }
         }
     `);
-    console.log(data);
     data.pizzas.nodes.forEach(pizza => {
         actions.createPage({
             path: `pizza/${pizza.slug.current}`,
@@ -26,7 +25,35 @@ async function turnPizzaIntoPages({graphql, actions}){
         })
     });
 }
+async function turnToppingsIntoPages({graphql, actions}){
+    // get a page template for this page
+    const ToppingTemplate = path.resolve('./src/pages/pizzas.js');
+    // query for all pizza
+    const {data} = await graphql(`
+        query {
+            toppings: allSanityTopping {
+                nodes {
+                    id
+                    name
+                }
+            }
+        }
+    `);
+    data.toppings.nodes.forEach(topping => {
+        actions.createPage({
+            path: `topping/${topping.name}`,
+            component: ToppingTemplate,
+            context:{
+                topping: topping.name,
+                toppingRegex: `/${topping.name}/i`
+            }
+        })
+    });
+}
 
 export async function createPages(params){
-    await turnPizzaIntoPages(params);
+    await Promise.all([
+        turnPizzaIntoPages(params),
+        turnToppingsIntoPages(params)
+    ]);
 }
