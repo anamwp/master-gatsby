@@ -7,9 +7,11 @@ export default {
     siteMetadata: {
         title: `Slicks Slices`, 
         siteUrl: 'https://anam.rocks',
-        description: 'The best place for pizza in Bangladesh'
+        description: 'The best place for pizza in Bangladesh',
+        twitter: '@theanamhossain'
     }, 
     plugins: [
+        'gatsby-plugin-react-helmet',
         'gatsby-plugin-styled-components',
         {
             resolve: 'gatsby-source-sanity',
