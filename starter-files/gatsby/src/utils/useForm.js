@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 export default function useForm(defaults) {
     const [values, setValues] = useState(defaults);
     function updateValue(e){
-        // console.log(e.target);
         let {value} = e.target;
         if(e.target.type === 'number'){
             value = parseInt(e.target.value);

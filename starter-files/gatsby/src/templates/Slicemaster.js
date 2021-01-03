@@ -3,7 +3,6 @@ import React from 'react';
 import Img from 'gatsby-image';
 import SEO from '../components/SEO';
 export default function Slicemaster({data: {person}}) {
-    console.log(person);
     return (
         <>
         <SEO title={person.name} image={person.image?.asset?.fluid?.src}/>

@@ -22,7 +22,6 @@ export default function OrderPage({data}){
         pizzas, 
         values,
     });
-    // console.log({order, addToOrder, removeFromOrder, error, message, loading, handleSubmit});
     if(message){
         return <p>{message}</p>
     }

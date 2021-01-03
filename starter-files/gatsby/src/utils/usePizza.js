@@ -15,9 +15,6 @@ export default function usePizza({pizzas, values}){
         setOrder([...order, orderedPizza]);
     }
     function removeFromOrder(index){
-        // console.log("order", order);
-        // console.log("index", index);
-
         setOrder([
             ...order.slice(0, index),
             ...order.slice(index + 1)
@@ -36,7 +33,6 @@ export default function usePizza({pizzas, values}){
             email: values.email,
             mapleSyrup: values.mapleSyrup
         }
-        // console.log(body);
         const res = await fetch(`${process.env.GATSBY_SERVERLESS_BASE}/placeOrder`, {
             method: 'POST', 
             headers: {
